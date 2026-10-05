@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0806;
+  --foreground: #f4ede0;
+
+  /* Heritage Palette */
+  --oak-950: #080605;
+  --oak-900: #0f0c09;
+  --oak-800: #17130f;
+  --oak-700: #231c16;
+  --oak-600: #322820;
+
+  --burgundy-900: #330812;
+  --burgundy-800: #4a0c1a;
+  --burgundy-700: #661024;
+  --burgundy-600: #851630;
+  --burgundy-500: #a51f3e;
+
+  --gold-500: #d4af37;
+  --gold-400: #e2c056;
+  --gold-300: #f0d278;
+  --gold-600: #b59228;
+  --gold-700: #93741b;
+
+  --parchment: #f6eedb;
+  --parchment-muted: #d0c4af;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-lato), "Lato", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-cinzel: var(--font-cinzel), "Cinzel", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
+body {
+  background-color: #090706;
+  color: #f5eedf;
+  font-family: var(--font-sans);
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+  selection-background-color: #661024;
+  selection-color: #f0d278;
+}
+
+::selection {
+  background-color: #550d1e;
+  color: #f5d47e;
+}
+
+/* Custom Scrollbar for Luxury Atmosphere */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0907;
+}
+::-webkit-scrollbar-thumb {
+  background: #352a20;
+  border-radius: 4px;
+  border: 1px solid #c8a34833;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Gold Gradient Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f7e6a7 0%, #d4af37 50%, #997825 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-light {
+  background: linear-gradient(135deg, #fff2cc 0%, #e5c365 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #e3c05b 0%, #c49d32 50%, #8f6e1b 100%);
+}
+
+.border-gold-subtle {
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+.border-gold-glow {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.bg-oak-card {
+  background: linear-gradient(180deg, rgba(26, 20, 16, 0.85) 0%, rgba(14, 11, 9, 0.95) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.bg-burgundy-glow {
+  background: radial-gradient(circle, rgba(102, 16, 36, 0.35) 0%, rgba(10, 8, 6, 0) 70%);
+}
+
+.brass-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.6) 50%, transparent 100%);
+}
+
+/* Monochromatic to Color Keyframes for the Chef Video / Hero */
+@keyframes grayscaleTransition {
+  0% {
+    filter: grayscale(100%) brightness(0.65) contrast(1.15);
+  }
+  50% {
+    filter: grayscale(50%) brightness(0.75) contrast(1.1);
+  }
+  100% {
+    filter: grayscale(0%) brightness(0.85) contrast(1.05);
+  }
+}
+
+.hero-video-animated {
+  animation: grayscaleTransition 8s ease-in-out infinite alternate;
+}
+
+/* Shimmer animation */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-gold {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: goldShimmer 3s infinite;
+}
